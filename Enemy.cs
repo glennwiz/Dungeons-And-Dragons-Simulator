@@ -1,8 +1,8 @@
 ﻿namespace DND_Sim
 {
-    public class Enemy : Actor
+    public class Enemy : IActor
     {
-        public int attack(object Player, object enemy)
+        public int attack(object enemy)
         {
             return 0;
         }
