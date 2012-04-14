@@ -24,6 +24,9 @@ namespace DND_Sim
             player1.Wp = bow;
             Console.WriteLine("{0} equipped ", bow.Name);
 
+            Enemy Enemy = new Enemy { Name = "Wolf", Ac = 2, Hp = 10, Thac0 = 10, Wp = null};
+
+
             Console.ReadLine();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace DND_Sim
 {
-    public class Enemy : IActor
+    public class Enemy : Player
     {
         public int attack(object enemy)
         {
