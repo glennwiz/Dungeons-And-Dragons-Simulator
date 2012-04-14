@@ -2,9 +2,5 @@
 {
     public class Enemy : Player
     {
-        public int attack(object enemy)
-        {
-            return 0;
-        }
     }
 }
