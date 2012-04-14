@@ -2,8 +2,27 @@
 {
     public class Bow : IWeapon
     {
-        private int DamageSize;
-        private int DamageNum;
+        private string _Name;
+        private int _damageSize;
+        private int _damageNum;
+
+        public int DamageSize
+        {
+            get { return _damageSize; }
+            set { _damageSize = value; }
+        }
+
+        public int DamageNum
+        {
+            get { return _damageNum; }
+            set { _damageNum = value; }
+        } 
+        
+        public string Name
+        {
+            get { return _Name; }
+            set { _Name = value; }
+        }
 
         public void fire()
         {

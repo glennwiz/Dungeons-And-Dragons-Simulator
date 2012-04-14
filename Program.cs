@@ -16,45 +16,20 @@ namespace DND_Sim
 
         static void Main(string[] args)
         {
-            MakePlayers();
+            //creating a Archer
+            Player player1 = new Player {Name = "Archer", Ac = 7, Thac0 = 16, Hp = 12 };
+            Console.WriteLine("Player1 created: Name: {0} Armour: {1}, Health Points: {2}", player1.Name, player1.Ac,player1.Hp);
+            //creating a 2d4 bow 
+            Bow bow = new Bow {Name = "FireBow 2d4",DamageNum = 2, DamageSize = 4};
+            player1.Wp = bow;
+            Console.WriteLine("{0} equipped ", bow.Name);
 
-            Attack();
+            Console.ReadLine();
         }
 
         private static void Attack()
         {
             throw new NotImplementedException();
-        }
-
-        private static void MakePlayers()
-        {
-            StatNames = new List<string>(new string[]
-	        {
-	            "HP",
-	            "AC",     
-	            "thac0",    
-	            "dmgnum",
-	            "dmgsize",
-                "dmgmod"
-	        });
-            Player = new List<int>(new int[]
-            {
-                14,
-                5,
-                18,
-                1,
-                6,
-                0
-            });
-            Enemy = new List<int>(new int[]
-            {
-                12,
-                7,
-                16,
-                2,
-                4,
-                0
-            });
         }
     }
 }
