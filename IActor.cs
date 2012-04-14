@@ -2,6 +2,5 @@
 {
     public interface IActor
     {
-        int attack(object enemy);
     }
 }

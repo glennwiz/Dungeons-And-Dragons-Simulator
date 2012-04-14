@@ -1,13 +1,17 @@
-﻿namespace DND_Sim
+﻿using System;
+
+namespace DND_Sim
 {
     public class Player : IActor
     {  
         private string _name;    //Name of player
         private int _hp;         //HitPoints
-        private int _ac;         //ArmourClass
+        private int _ac;         //ArmourClass 0 is best 20 worst
         private int _thac0;      //To Hit Armour Class 0
         private IWeapon _wp;     //Weapon
         private IBuff[] _damageMod;  //Buffs
+
+        Random _random = new Random(43256);
 
         public string Name
         {
@@ -45,8 +49,19 @@
             set { _damageMod = value; }
         }
 
-        public int attack(object enemy)
+        public int attack(Enemy enemy)
         {
+            int random = _random.Next(1, 20);
+
+            if (random >= this.Thac0 - enemy.Ac)
+            {
+                Logger.display("Hit", ConsoleColor.Red);
+            }
+            else
+            {
+                Logger.display("Miss", ConsoleColor.Blue);
+            }
+
             return 0;
         }
     }
