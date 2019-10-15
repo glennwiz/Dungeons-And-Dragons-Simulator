@@ -7,14 +7,14 @@ namespace DND_Sim
 {
     static class BattleCreator
     {
-        private static Random rn = new Random();        
+        private static Random rn = new Random();
 
         public static void BattleSetup()
         {
-            int num_figths;  
+            int num_figths;
 
             Console.Write("Number of Fights: > ");
-             
+
             var was_number = int.TryParse(Console.ReadLine(), out num_figths);
 
             if (!was_number)
@@ -29,9 +29,9 @@ namespace DND_Sim
             }
 
             Console.Write("You want Verbose Output? > ");
-            string awnser = Console.ReadLine();
+            string answer = Console.ReadLine();
 
-            if (awnser[0] == 'y' || awnser[0] == 'Y')
+            if (answer[0].ToString().ToUpper() == "Y")
             {
                 Logger.Verblog = true;
             }
@@ -46,24 +46,25 @@ namespace DND_Sim
 
 
             Console.Write("Create random weapon? > ");
-            awnser = Console.ReadLine();
+            answer = Console.ReadLine();
 
-            if (awnser[0] == 'y' || awnser[0] == 'Y')
+            if (answer[0].ToString().ToUpper() == "Y")
             {
                 int DmgNum = rn.Next(1, 3);
                 int DmgSize = rn.Next(1, 6);
-                var bow = new Bow { Name = string.Format("Bow {0}d{1}",DmgNum,DmgSize), DamageNum = DmgNum, DamageSize = DmgSize };
+                var bow = new Bow { Name = string.Format("Bow {0}d{1}", DmgNum, DmgSize), DamageNum = DmgNum, DamageSize = DmgSize };
                 player1.Wp = bow;
                 Logger.LogTrue(string.Format("{0} equipped\n", bow.Name), ConsoleColor.Cyan);
             }
             else
-            {
+            {   
+                //creating a 2d4 bow
                 var bow = new Bow { Name = "Bow 2d4", DamageNum = 2, DamageSize = 4 };
                 player1.Wp = bow;
                 Logger.LogTrue(string.Format("{0} equipped\n", bow.Name), ConsoleColor.Cyan);
             }
-            //creating a 2d4 bow 
-           
+
+
 
             //creating an enemy 
             var enemy = new Enemy { Name = "Wolf", Ac = 6, Hp = 10, Thac0 = 10, Wp = null };

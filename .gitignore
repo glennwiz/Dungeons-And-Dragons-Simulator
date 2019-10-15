@@ -48,3 +48,4 @@ _ReSharper*/
 #NuGet
 packages/
 
+/.vs/DND_Sim/v16/Server/sqlite3
