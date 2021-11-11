@@ -6,11 +6,11 @@
 
         int Hp { get; set; }
 
-        int Ac { get; set; }
+        int ArmourClass { get; set; }
 
         int Thac0 { get; set; }
 
-        IWeapon Wp
+        IWeapon Weapon
         {
             get;
             set;
