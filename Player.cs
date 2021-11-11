@@ -10,11 +10,11 @@ namespace DND_Sim
 
         public int Hp { get; set; }
 
-        public int Ac { get; set; }
+        public int ArmourClass { get; set; }
 
-        public int Thac0 { get; set; }
+        public int Thac0 { get; set; } //To Hit ArmourClass 0
 
-        public IWeapon Wp { get; set; }
+        public IWeapon Weapon { get; set; }
 
         public IBuff[] DamageMod { get; set; }
 
@@ -22,10 +22,10 @@ namespace DND_Sim
         {
             int random = _random.Next(1, 20);
 
-            if (random >= this.Thac0 - enemy.Ac)
+            if (random >= this.Thac0 - enemy.ArmourClass)
             {
                 Logger.Log("Hit", ConsoleColor.Red);
-                Wp.fire(this, enemy);
+                Weapon.fire(this, enemy);
             }
             else
             {
